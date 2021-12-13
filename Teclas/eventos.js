@@ -31,7 +31,6 @@ let gameStatus = true;
 
     }
     
-
 }
 
   document.addEventListener("keydown", dibujarTeclado)
