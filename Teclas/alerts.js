@@ -1,7 +1,7 @@
-//the sweetalert2 and bootstrap
-
-    Swal.fire("Bienvenido",`
-<br>
+// the sweetalert2 and bootstrap 
+// star and manual
+   Swal.fire({title:"Bienvenido",
+   html:`<br>
 <strong>Controles:</strong>
 <ul class="list-group">
 <li class="list-group-item"> <kbd>Space</kbd><br>Pausar o reanudar </li>
@@ -10,6 +10,19 @@
 </svg><br>Rotar</li>
 <li class="list-group-item"> <kbd>Flechas de dirección</kbd><br>Mover figura hacia esa dirección</li>
 <li class="list-group-item"><strong>También puedes usar los botones si estás en móvil</strong></li>
-</ul>
+</ul>`,
+confirmButtonColor:'#5ce1e6'
+});
 
-`);
+ //Game over
+ Swal.fire({
+ title: "GAME OVER",
+ footer:'Presiona reset para volver a jugar',
+ imageUrl :'./img.png/game over.png' ,
+ imageWidth: '300px',
+ imageAlt: 'Game over',
+ confirmButtonText:'Reset',
+ confirmButtonColor:'#5ce1e6',
+ width:"70%" 
+ }
+ )
