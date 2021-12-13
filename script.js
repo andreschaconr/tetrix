@@ -209,7 +209,7 @@ function initialize(){ //this function star all, she is called in the html whit 
     }
     
     function updateScore() {
-        document.getElementById('score').innerText =("SCORE  "+player1.score) ; //this function update and print the score in the score div
+        document.getElementById('score').innerText =("SCORE:  "+player1.score) ; //this function update and print the score in the score div
     }
     
     document.addEventListener('keydown',  event => {
