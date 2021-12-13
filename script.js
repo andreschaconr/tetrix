@@ -143,7 +143,7 @@ function initialize(){ //this function star all, she is called in the html whit 
         }
     }
     
-    function playerDrop() {
+    function playerDrop() { //fuction to inicialize the fall to pieces
         player1.position.y++;
         if (collision(board, player1)) {
             player1.position.y--;
@@ -155,16 +155,16 @@ function initialize(){ //this function star all, she is called in the html whit 
         counter = 0;
     }
     
-    function playerMove(offset) {
+    function playerMove(offset) { //this fuction control the move to pieces into matrix
         player1.position.x += offset;
         if (collision(board, player1)) {
             player1.position.x -= offset;
         }
     }
     
-    function playerReset() {
+    function playerReset() { //Fuction to reset the game
         const pieces = 'TJLOSZI';
-        player1.matrix = generatePieces(pieces[pieces.length * Math.random() | 0]);
+        player1.matrix = generatePieces(pieces[pieces.length * Math.random() | 0]); //generate pieces random
         player1.position.y = 0;
         player1.position.x = (board[0].length / 2 | 0) -
                        (player1.matrix[0].length / 2 | 0);
@@ -175,7 +175,7 @@ function initialize(){ //this function star all, she is called in the html whit 
         }
     }
     
-    function playerRotate(dir) {
+    function playerRotate(dir) { //fuction to rotate the pieces with events
         const position = player1.position.x;
         let offset = 1;
         rotate(player1.matrix, dir);
@@ -213,20 +213,37 @@ function initialize(){ //this function star all, she is called in the html whit 
     }
     
     document.addEventListener('keydown',  event => {
-        if (event.keyCode === 37) {
+        if (event.key== "ArrowLeft") {
             playerMove(-1);
-        } else if (event.keyCode === 39) {
+        } else if (event.key== "ArrowRight") {
             playerMove(1);
-        } else if (event.keyCode === 40) {
+        } else if (event.key== "ArrowDown") {
             playerDrop();
-        } else if (event.keyCode === 81) {
+        } else if (event.key== "ArrowUp") {
             playerRotate(-1);
-        } else if (event.keyCode === 87) {
-            playerRotate(1);
         }
     });
     
-    const colors = [
+    let buttonup = document.getElementById('up'); //control the move of pieces since buttons
+     buttonup.onclick = function (){
+        playerRotate(-1);
+     }
+     let buttondown = document.getElementById('down'); //control the move of pieces since buttons
+     buttondown.onclick = function (){
+        playerDrop();
+     }
+     let buttonleft = document.getElementById('left'); //control the move of pieces since buttons
+     buttonleft.onclick = function (){
+        playerMove(-1);
+     }
+     let buttonright = document.getElementById('right'); //control the move of pieces since buttons
+     buttonright.onclick = function (){
+        playerMove(1);
+     }
+
+
+
+    const colors = [ //colors of pieces
         null,
         '#AE3DFF',
         '#55FFE2',
@@ -237,7 +254,7 @@ function initialize(){ //this function star all, she is called in the html whit 
         '#ff0534',
     ];
     
-    const board = createMatrix(12, 20);
+    const board = createMatrix(12, 20); //create board 
     
     const player1 = { //start to game
         position: {x: 0, y: 0},
