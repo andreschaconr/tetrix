@@ -9,4 +9,8 @@ Popular juego en 2D desarrolado con JavaScript  el objetivo consiste en mover la
 Daniela Ortiz.
 Andrés chacón.
 ## Despliegue 📦
+
+https://andreschaconr.github.io/tetrix/
+
+https://xenodochial-lamport-02c21f.netlify.app/
 ## Version 1.0 📌
