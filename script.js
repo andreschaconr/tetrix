@@ -1,6 +1,6 @@
 
 function initialize(){ 
-    Swal.fire({title:"Bienvenido",
+    Swal.fire({title:"Bienvenido",  //alert welcome
     html:`<br>
     <strong>Controles:</strong>
     <ul class="list-group">
@@ -201,9 +201,10 @@ function initialize(){
         player1.position.y = 0;
         player1.position.x = (board[0].length / 2 | 0) -
                        (player1.matrix[0].length / 2 | 0);
+                       
         if (collision(board, player1)) {
             board.forEach(row => row.fill(0));
-            Swal.fire({
+            Swal.fire({ //Alert game over
                 title: "GAME OVER",
                 footer:'Presiona reset para volver a jugar',
                 imageUrl :'./game over.png' ,
@@ -215,13 +216,16 @@ function initialize(){
                 height: "80%"
                 }
                 ).then(()=>{
-                    
+            
+                    playerReset();
                     player1.score = 0;
-                    updateScore();})
+                    updateScore();
+                })}
             
             
         }
-    }
+        
+    
     
     function playerRotate(dir) { //fuction to rotate the pieces with events
         const position = player1.position.x;
@@ -307,6 +311,7 @@ function initialize(){
          playerplay();
          
      }
+     
       
 
 
