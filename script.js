@@ -154,6 +154,24 @@ function initialize(){ //this function star all, she is called in the html whit 
         }
         counter = 0;
     }
+    let pause = false;
+    function playerpause(){ //this function pause the game
+         
+         pause = true;
+         if( pause == true){
+            dropInterval=5000000;
+         }
+         
+     }
+     function playerplay(){ //this function pause the game
+         
+        pause = false;
+        if( pause == false){
+           dropInterval=1000;
+        }
+        
+    }
+    
     
     function playerMove(offset) { //this fuction control the move to pieces into matrix
         player1.position.x += offset;
@@ -174,6 +192,7 @@ function initialize(){ //this function star all, she is called in the html whit 
             updateScore();
         }
     }
+    
     
     function playerRotate(dir) { //fuction to rotate the pieces with events
         const position = player1.position.x;
@@ -221,7 +240,17 @@ function initialize(){ //this function star all, she is called in the html whit 
             playerDrop();
         } else if (event.key== "ArrowUp") {
             playerRotate(-1);
+        }else if (event.keyCode=== 32){
+            if (!pause){ 
+                playerpause();
         }
+        else {
+            playerplay();
+            
+        }
+    }
+    
+    
     });
     
     let buttonup = document.getElementById('up'); //control the move of pieces since buttons
@@ -240,7 +269,16 @@ function initialize(){ //this function star all, she is called in the html whit 
      buttonright.onclick = function (){
         playerMove(1);
      }
-
+     let buttonpause = document.getElementById('pause'); //pause the game
+     buttonpause.onclick = function(){
+         playerpause();
+     }
+     let buttonplay = document.getElementById('play'); //start game after pause
+     buttonplay.onclick = function(){
+         playerplay();
+         
+     }
+      
 
 
     const colors = [ //colors of pieces

@@ -6,9 +6,6 @@ body {
     text-align: center;
     display: grid;
     grid-template-rows: 0;
-
-    
-    
   }
  
   canvas {
